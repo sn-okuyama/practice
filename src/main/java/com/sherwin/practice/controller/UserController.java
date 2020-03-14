@@ -30,7 +30,7 @@ public class UserController {
     public ResponseEntity<?> save(@RequestBody User user) {
         Map<String, String> errors = new HashMap<>();
 
-        if (user.getFirstName() == null) {
+        if (user.getFirstName() == null || user.getFirstName().isBlank()) {
             errors.put("firstName", "First name is required");
         }
 
