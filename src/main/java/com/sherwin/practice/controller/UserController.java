@@ -2,7 +2,6 @@ package com.sherwin.practice.controller;
 
 import com.sherwin.practice.entity.User;
 import com.sherwin.practice.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -43,7 +42,7 @@ public class UserController {
 
     @GetMapping("{id}")
     public User detail(@PathVariable int id) {
-        return userRepository.findById(id).get();
+        return userRepository.findById(id).orElseThrow();
     }
 
     @PutMapping("{id}")
